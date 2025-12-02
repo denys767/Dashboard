@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketPro Agency Security Dashboard</title>
+    <!-- Подключаем библиотеку графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Подключаем наш файл стилей -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header card-base">
+            <div class="header-left">
+                <h1>🛡️ MarketPro Agency Dashboard</h1>
+                <p>Результати Security Awareness Program (Прогноз: +3 місяці)</p>
+            </div>
+            <div class="header-right">
+                <div class="overall-score">78%</div>
+                <div class="overall-label">Рівень кіберстійкості</div>
+            </div>
+        </div>
+
+        <!-- 1. Key Metrics -->
+        <div class="metrics-row">
+            <div class="metric-card card-base">
+                <div class="metric-icon">🎣</div>
+                <div class="metric-value">8.5%</div>
+                <div class="metric-label">Phishing Click Rate</div>
+                <div class="metric-change positive">↓ з 27% (Старт)</div>
+            </div>
+            <div class="metric-card card-base">
+                <div class="metric-icon">🚨</div>
+                <div class="metric-value">14%</div>
+                <div class="metric-label">Report Rate</div>
+                <div class="metric-change positive">↑ з 1% (Старт)</div>
+            </div>
+            <div class="metric-card card-base">
+                <div class="metric-icon">🔐</div>
+                <div class="metric-value">98%</div>
+                <div class="metric-label">MFA Adoption</div>
+                <div class="metric-change positive">Meta/Google Ads</div>
+            </div>
+            <div class="metric-card card-base">
+                <div class="metric-icon">🔑</div>
+                <div class="metric-value">85%</div>
+                <div class="metric-label">Password Manager</div>
+                <div class="metric-change positive">Замість Sheets</div>
+            </div>
+            <div class="metric-card card-base">
+                <div class="metric-icon">💻</div>
+                <div class="metric-value">15%</div>
+                <div class="metric-label">Risk BYOD</div>
+                <div class="metric-change positive">↓ з 70%</div>
+            </div>
+            <div class="metric-card card-base">
+                <div class="metric-icon">🎓</div>
+                <div class="metric-value">92%</div>
+                <div class="metric-label">Training Done</div>
+                <div class="metric-change positive">Активність</div>
+            </div>
+        </div>
+
+        <!-- 2. Risk Scenarios (Specific to MarketPro) -->
+        <h2 class="section-title">🔥 Топ-5 Сценаріїв Ризику (Digital Agency)</h2>
+        <div class="risk-cards">
+            <!-- Risk 1 -->
+            <div class="risk-card card-base">
+                <div class="risk-title">Meta Security Spoofing</div>
+                <div class="risk-desc">Фішинг під виглядом блокування рекламного кабінету.</div>
+                <div class="risk-bar-bg"><div class="risk-bar-fill" style="width: 20%; background: #E53E3E;"></div></div>
+                <div class="risk-stats">
+                    <span style="color:#E53E3E">Було: High</span>
+                    <span style="color:#38A169">Стало: Low</span>
+                </div>
+            </div>
+            <!-- Risk 2 -->
+            <div class="risk-card card-base">
+                <div class="risk-title">Ad Budget Theft</div>
+                <div class="risk-desc">Втрата доступу до бюджетів клієнтів (Business Manager).</div>
+                <div class="risk-bar-bg"><div class="risk-bar-fill" style="width: 10%; background: #DD6B20;"></div></div>
+                <div class="risk-stats">
+                    <span style="color:#DD6B20">Було: Critical</span>
+                    <span style="color:#38A169">Стало: Safe</span>
+                </div>
+            </div>
+            <!-- Risk 3 -->
+            <div class="risk-card card-base">
+                <div class="risk-title">Data Leak via Telegram</div>
+                <div class="risk-desc">Передача паролів та баз у месенджерах.</div>
+                <div class="risk-bar-bg"><div class="risk-bar-fill" style="width: 35%; background: #D69E2E;"></div></div>
+                <div class="risk-stats">
+                    <span style="color:#D69E2E">Було: High</span>
+                    <span style="color:#D69E2E">Стало: Med</span>
+                </div>
+            </div>
+            <!-- Risk 4 -->
+            <div class="risk-card card-base">
+                <div class="risk-title">Unsecured BYOD</div>
+                <div class="risk-desc">Робота з особистих ноутбуків без антивірусу.</div>
+                <div class="risk-bar-bg"><div class="risk-bar-fill" style="width: 40%; background: #3182CE;"></div></div>
+                <div class="risk-stats">
+                    <span style="color:#3182CE">Було: Critical</span>
+                    <span style="color:#3182CE">Стало: Med</span>
+                </div>
+            </div>
+            <!-- Risk 5 -->
+            <div class="risk-card card-base">
+                <div class="risk-title">Urgent Client Phish</div>
+                <div class="risk-desc">Фейкові файли від "клієнтів" (Acc. Managers).</div>
+                <div class="risk-bar-bg"><div class="risk-bar-fill" style="width: 15%; background: #805AD5;"></div></div>
+                <div class="risk-stats">
+                    <span style="color:#805AD5">Було: High</span>
+                    <span style="color:#38A169">Стало: Low</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Charts -->
+        <div class="charts-grid">
+            <div class="chart-card wide card-base">
+                <div class="chart-title">📈 Динаміка Click Rate (3 місяці навчання)</div>
+                <div class="chart-container">
+                    <canvas id="clickRateChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card card-base">
+                <div class="chart-title">🔐 Впровадження інструментів</div>
+                <div class="chart-container">
+                    <canvas id="adoptionChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card full card-base">
+                <div class="chart-title">📊 Деталі по KPI</div>
+                <table class="kpi-table">
+                    <thead>
+                        <tr>
+                            <th>Метрика</th>
+                            <th>Група ризику</th>
+                            <th>Старт</th>
+                            <th>Зараз</th>
+                            <th>Ціль</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Click Rate (Meta Phish)</strong></td>
+                            <td>SMM, Таргетологи</td>
+                            <td style="color:#E53E3E">27%</td>
+                            <td>8.5%</td>
+                            <td style="color:#38A169">< 5%</td>
+                            <td><span class="badge badge-process">В процесі</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>MFA (Ads Cabinets)</strong></td>
+                            <td>Таргетологи, Finance</td>
+                            <td style="color:#E53E3E">35%</td>
+                            <td>98%</td>
+                            <td style="color:#38A169">100%</td>
+                            <td><span class="badge badge-success">Майже Done</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pass. Mgr Usage</strong></td>
+                            <td>Account Managers</td>
+                            <td style="color:#E53E3E">12%</td>
+                            <td>85%</td>
+                            <td style="color:#38A169">90%</td>
+                            <td><span class="badge badge-success">Успіх</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 4. Departments -->
+        <h2 class="section-title">🏢 Security Score по відділах</h2>
+        <div class="dept-grid">
+            <div class="dept-card card-base">
+                <div class="dept-name">IT / Admin</div>
+                <div class="dept-score" style="color:#38A169">95%</div>
+                <div class="dept-sub">Лідер</div>
+            </div>
+            <div class="dept-card card-base">
+                <div class="dept-name">Analytics</div>
+                <div class="dept-score" style="color:#38A169">88%</div>
+                <div class="dept-sub">Високий</div>
+            </div>
+            <div class="dept-card card-base">
+                <div class="dept-name">Account Mgmt</div>
+                <div class="dept-score" style="color:#D69E2E">74%</div>
+                <div class="dept-sub">Середній</div>
+            </div>
+            <div class="dept-card card-base">
+                <div class="dept-name">SMM Team</div>
+                <div class="dept-score" style="color:#DD6B20">65%</div>
+                <div class="dept-sub">Ризик</div>
+            </div>
+            <div class="dept-card card-base">
+                <div class="dept-name">Targeting</div>
+                <div class="dept-score" style="color:#DD6B20">62%</div>
+                <div class="dept-sub">Ризик</div>
+            </div>
+            <div class="dept-card card-base">
+                <div class="dept-name">Designers</div>
+                <div class="dept-score" style="color:#E53E3E">55%</div>
+                <div class="dept-sub">Критично</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Общие настройки для графиков (Світлий текст)
+        Chart.defaults.color = '#718096';
+        Chart.defaults.borderColor = '#EDF2F7';
+
+        // 1. Click Rate Chart
+        const ctxClick = document.getElementById('clickRateChart').getContext('2d');
+        new Chart(ctxClick, {
+            type: 'line',
+            data: {
+                labels: ['Start', 'Week 2', 'Week 4', 'Week 6', 'Week 8', 'Week 10', 'Week 12'],
+                datasets: [{
+                    label: 'Click Rate (Всі відділи)',
+                    data: [27, 26, 24, 18, 14, 10, 8.5], 
+                    borderColor: '#D53F8C', // Pink
+                    backgroundColor: 'rgba(213, 63, 140, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#D53F8C',
+                    pointBorderColor: '#fff',
+                }, {
+                    label: 'Report Rate (Звітування)',
+                    data: [1, 2, 4, 8, 10, 12, 14], 
+                    borderColor: '#38A169', // Green
+                    backgroundColor: 'rgba(56, 161, 105, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#38A169',
+                    pointBorderColor: '#fff',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line',
+                                yMin: 5,
+                                yMax: 5,
+                                borderColor: '#553C9A', // Purple Target
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                label: { content: 'Target 5%', enabled: true, backgroundColor: 'rgba(85, 60, 154, 0.8)' }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        max: 30, 
+                        title: {display: true, text: '%'},
+                    }
+                }
+            }
+        });
+
+        // 2. Adoption Chart
+        const ctxAdopt = document.getElementById('adoptionChart').getContext('2d');
+        new Chart(ctxAdopt, {
+            type: 'bar',
+            data: {
+                labels: ['MFA (Ads)', 'Pass Manager', 'No Telegram Pass'],
+                datasets: [{
+                    label: 'Start',
+                    data: [35, 12, 40],
+                    backgroundColor: '#E9D8FD', // Light Purple
+                    borderColor: '#B794F4',
+                    borderWidth: 1,
+                    borderRadius: 8
+                }, {
+                    label: 'Current',
+                    data: [98, 85, 75],
+                    backgroundColor: '#D53F8C', // Pink
+                    borderColor: '#D53F8C',
+                    borderWidth: 1,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { 
+                    legend: { position: 'bottom' }
+                },
+                scales: { 
+                    y: { 
+                        beginAtZero: true, 
+                        max: 100,
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
